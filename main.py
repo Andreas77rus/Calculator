@@ -9,7 +9,7 @@ class CalculatorApp(QtWidgets.QMainWindow, gui.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.nums = '1234567890.'
-        self.ops = '+-/*√**2'
+        self.ops = '+/*√**2'
         self.setupUi(self)
         self.build()
 
@@ -38,7 +38,7 @@ class CalculatorApp(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         self.umn.clicked.connect(lambda: self.abOP('*'))
         self.inDouble.clicked.connect(lambda: self.abOP('**2'))
         self.koren.clicked.connect(lambda: self.abOP('√'))
-        self.minus.clicked.connect(lambda: self.abOP('-'))
+        self.minus.clicked.connect(lambda: self.ab('-'))
 
 
     def ab(self, s):
@@ -50,25 +50,18 @@ class CalculatorApp(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         if self.result.text() != '':
             self.clearSpace()
         if self.Exercise.text() == '':
-            self.plus.setChecked(False)
-            self.plus.setChecked(False)
-            self.plus.setChecked(False)
-            self.plus.setChecked(False)
-            self.plus.setChecked(False)
-            self.plus.setChecked(False)
             s = ''
+        else:
+            self.Exercise.setText(str(self.Exercise.text()) + s)
         try:
             if self.Exercise.text()[-1] in self.ops:
-                self.plus.setChecked(False)
-                self.plus.setChecked(False)
-                self.plus.setChecked(False)
-                self.plus.setChecked(False)
-                self.plus.setChecked(False)
-                self.plus.setChecked(False)
                 s = ''
+            else:
+                self.Exercise.setText(str(self.Exercise.text()) + s)
+
         except Exception:
             pass
-        self.Exercise.setText(str(self.Exercise.text()) + s)
+
 
 
     def clearSpace(self):
