@@ -9,7 +9,7 @@ class CalculatorApp(QtWidgets.QMainWindow, gui.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.nums = '1234567890.'
-        self.ops = '+/*√**2'
+        self.ops = '+/***200'
         self.setupUi(self)
         self.build()
 
@@ -30,14 +30,14 @@ class CalculatorApp(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         self.num8.clicked.connect(lambda:self.ab('8'))
         self.num9.clicked.connect(lambda:self.ab('9'))
         self.dot.clicked.connect(lambda:self.ab('.'))
-        self.doublezero.clicked.connect(lambda: self.ab('00'))
+        self.doublezero.clicked.connect(lambda: self.abOP('00'))
 
 
         self.plus.clicked.connect(lambda: self.abOP('+'))
         self.devision.clicked.connect(lambda: self.abOP('/'))
         self.umn.clicked.connect(lambda: self.abOP('*'))
         self.inDouble.clicked.connect(lambda: self.abOP('**2'))
-        self.koren.clicked.connect(lambda: self.abOP('√'))
+        self.koren.clicked.connect(lambda: self.ab('√'))
         self.minus.clicked.connect(lambda: self.ab('-'))
 
 
